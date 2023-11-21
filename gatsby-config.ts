@@ -27,7 +27,7 @@ const config: GatsbyConfig = {
         // This object gets passed directly to the gtag config command
         // This config will be shared across all trackingIds
         gtagConfig: {
-          optimize_id: 'OPT_CONTAINER_ID',
+          optimize_id: 'GTM-W2L7DRM4',
           anonymize_ip: true,
           cookie_expires: 0,
         },
