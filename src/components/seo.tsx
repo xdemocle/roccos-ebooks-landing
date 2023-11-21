@@ -1,5 +1,5 @@
-import React from "react";
-import { useSiteMetadata } from "../hooks/use-site-metadata";
+import React from 'react';
+import { useSiteMetadata } from '../hooks/use-site-metadata';
 
 interface ISeoProps {
   children?: React.ReactNode;

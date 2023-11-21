@@ -1,4 +1,4 @@
-import { graphql, useStaticQuery } from "gatsby";
+import { graphql, useStaticQuery } from 'gatsby';
 
 export const useSiteMetadata = () => {
   const data = useStaticQuery(graphql`
@@ -6,9 +6,9 @@ export const useSiteMetadata = () => {
       site {
         siteMetadata {
           title
-          description
-          twitterUsername
-          image
+          # description
+          # twitterUsername
+          # image
           siteUrl
         }
       }

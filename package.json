@@ -14,27 +14,36 @@
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "format": "prettier --write src/**/*.{ts,tsx,css,json} --config ./.prettierrc.json"
   },
   "dependencies": {
-    "@jambaree/gatsby-theme-tailwindcss": "^2.1.7",
-    "gatsby": "^5.12.9",
+    "gatsby": "^5.12.10",
     "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-google-gtag": "^5.12.3",
     "gatsby-plugin-image": "^3.12.3",
     "gatsby-plugin-manifest": "^5.12.3",
+    "gatsby-plugin-react-i18next": "^3.0.1",
     "gatsby-plugin-sharp": "^5.12.3",
     "gatsby-plugin-sitemap": "^6.12.3",
     "gatsby-source-filesystem": "^5.12.1",
+    "gatsby-theme-tailwindcss": "^1.1.0",
     "gatsby-transformer-sharp": "^5.12.3",
+    "i18next": "^23.7.6",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-i18next": "^13.5.0"
   },
   "devDependencies": {
     "@types/node": "^20.9.3",
     "@types/react": "^18.2.38",
     "@types/react-dom": "^18.2.16",
-    "@types/react-helmet": "^6.1.9",
+    "@typescript-eslint/eslint-plugin": "^6.12.0",
+    "@typescript-eslint/parser": "^6.12.0",
+    "eslint": "^8.54.0",
+    "gatsby-plugin-postcss": "^6.12.0",
+    "postcss": "^8.4.31",
+    "prettier": "^3.1.0",
     "typescript": "^5.3.2"
   }
 }

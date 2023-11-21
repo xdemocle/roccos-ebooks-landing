@@ -1,5 +1,5 @@
-import * as React from "react";
-import { LocalizedLink } from "gatsby-theme-i18n";
+import * as React from 'react';
+import { LocalizedLink } from 'gatsby-theme-i18n';
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (

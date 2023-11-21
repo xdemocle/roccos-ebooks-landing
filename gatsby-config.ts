@@ -1,10 +1,11 @@
-import type { GatsbyConfig } from "gatsby";
+import type { GatsbyConfig } from 'gatsby';
 
-const title = `Rocco's E-books | Buy online | Publishing solutions`;
-const shortTitle = `Rocco's E-books`;
-const description = `Buy online e-books | Rocco offers also self-publishing solutions`;
-const siteUrl = `https://ebooks.rocco.me`;
-const defaultLang = `en`;
+const title = "Rocco's E-books | Buy online | Publishing solutions";
+const shortTitle = "Rocco's E-books";
+const description =
+  'Buy online e-books | Rocco offers also self-publishing solutions';
+const siteUrl = 'https://ebooks.rocco.me';
+const defaultLang = 'en';
 
 const config: GatsbyConfig = {
   siteMetadata: {
@@ -17,16 +18,16 @@ const config: GatsbyConfig = {
   graphqlTypegen: true,
   plugins: [
     {
-      resolve: `gatsby-plugin-google-gtag`,
+      resolve: 'gatsby-plugin-google-gtag',
       options: {
         // You can add multiple tracking ids and a pageview event will be fired for all of them.
         trackingIds: [
-          "G-S2MLDBMJ9K", // Google Analytics / GA
+          'G-S2MLDBMJ9K', // Google Analytics / GA
         ],
         // This object gets passed directly to the gtag config command
         // This config will be shared across all trackingIds
         gtagConfig: {
-          optimize_id: "OPT_CONTAINER_ID",
+          optimize_id: 'OPT_CONTAINER_ID',
           anonymize_ip: true,
           cookie_expires: 0,
         },
@@ -37,7 +38,7 @@ const config: GatsbyConfig = {
           // Setting this parameter is also optional
           respectDNT: true,
           // Avoids sending pageview hits from custom paths
-          exclude: ["/preview/**", "/do-not-track/me/too/"],
+          exclude: ['/preview/**', '/do-not-track/me/too/'],
           // Defaults to https://www.googletagmanager.com
           // origin: 'YOUR_SELF_HOSTED_ORIGIN',
           // Delays processing pageview events on route update (in milliseconds)
@@ -46,64 +47,119 @@ const config: GatsbyConfig = {
       },
     },
     {
-      resolve: `gatsby-plugin-google-fonts`,
+      resolve: 'gatsby-plugin-google-fonts',
       options: {
         fonts: [
-          `Shadows Into Light`,
-          // `source sans pro\:300,400,400i,700`, // you can also specify font weights and styles
+          'Shadows Into Light',
+          // 'source sans pro\:300,400,400i,700', // you can also specify font weights and styles
         ],
-        display: "swap",
+        display: 'swap',
       },
     },
     {
-      resolve: `gatsby-theme-i18n`,
+      resolve: 'gatsby-theme-tailwindcss',
       options: {
-        defaultLang,
-        locales: process.env.LOCALES || `en es`,
-        configPath: require.resolve(`./src/i18n/config.json`),
+        postCssPlugins: [require('autoprefixer')],
       },
     },
+    'gatsby-plugin-postcss',
+    'gatsby-plugin-image',
+    'gatsby-plugin-sitemap',
     {
-      resolve: `gatsby-theme-tailwindcss`,
-      options: {
-        postCssPlugins: [require("autoprefixer")],
-      },
-    },
-    "gatsby-plugin-image",
-    "gatsby-plugin-sitemap",
-    {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: 'gatsby-plugin-manifest',
       options: {
         name: title,
         short_name: shortTitle,
         description: description,
         lang: defaultLang,
-        display: `standalone`,
-        icon: `src/images/icon.png`,
-        start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#fff`,
+        display: 'standalone',
+        icon: 'src/images/icon.png',
+        start_url: '/',
+        background_color: '#663399',
+        theme_color: '#fff',
         localize: [
           {
-            start_url: `/de/`,
-            lang: `de`,
-            name: `Die coole Anwendung`,
-            short_name: `Coole Anwendung`,
-            description: `Die Anwendung macht coole Dinge und macht Ihr Leben besser.`,
+            start_url: '/de/',
+            lang: 'de',
+            name: 'Die coole Anwendung',
+            short_name: 'Coole Anwendung',
+            description:
+              'Die Anwendung macht coole Dinge und macht Ihr Leben besser.',
           },
         ],
       },
     },
-    "gatsby-plugin-sharp",
-    "gatsby-transformer-sharp",
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: 'gatsby-source-filesystem',
       options: {
-        name: "images",
-        path: "./src/images/",
+        name: 'images',
+        path: './src/images/',
       },
-      __key: "images",
+      __key: 'images',
     },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'locale',
+        path: `${__dirname}/i18n`,
+      },
+      __key: 'locale',
+    },
+    {
+      resolve: 'gatsby-plugin-react-i18next',
+      options: {
+        localeJsonSourceName: 'locale', // name given to 'gatsby-source-filesystem' plugin.
+        languages: ['en', 'es'],
+        defaultLanguage: 'en',
+        siteUrl,
+        // if you are using trailingSlash gatsby config include it here, as well (the default is 'always')
+        trailingSlash: 'always',
+        // you can pass any i18next options
+        i18nextOptions: {
+          interpolation: {
+            escapeValue: false, // not needed for react as it escapes by default
+          },
+          keySeparator: false,
+          nsSeparator: false,
+        },
+        // pages: [
+        //   {
+        //     matchPath: '/:lang?/:uid',
+        //     getLanguageFromPath: true,
+        //     excludeLanguages: []
+        //   },
+        //   {
+        //     matchPath: '/preview',
+        //     languages: ['en']
+        //   }
+        // ]
+      },
+    },
+    // {
+    //   resolve: 'gatsby-plugin-prettier-eslint',
+    //   options: {
+    //     prettier: {
+    //       patterns: [
+    //         // the pattern "**/*.{js,jsx,ts,tsx}" is not used because we will rely on `eslint --fix`
+    //         '**/*.{css,scss,less}',
+    //         '**/*.{json,json5}',
+    //         '**/*.{graphql}',
+    //         '**/*.{md,mdx}',
+    //         '**/*.{html}',
+    //         '**/*.{yaml,yml}',
+    //       ],
+    //     },
+    //     eslint: {
+    //       patterns: '**/*.{js,jsx,ts,tsx}',
+    //       customOptions: {
+    //         fix: true,
+    //         cache: true,
+    //       },
+    //     },
+    //   },
+    // },
   ],
 };
 

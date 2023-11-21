@@ -1,4 +1,4 @@
-import "./src/styles/globals.css";
+import './src/utils/globals.css';
 
 // const Layout = require("./src/components/layout");
 
@@ -6,8 +6,8 @@ import "./src/styles/globals.css";
 
 // Logs when the client route changes
 export const onRouteUpdate = ({ location, prevLocation }) => {
-  console.log("new pathname", location.pathname);
-  console.log("old pathname", prevLocation ? prevLocation.pathname : null);
+  console.log('new pathname', location.pathname);
+  console.log('old pathname', prevLocation ? prevLocation.pathname : null);
 };
 
 // Wraps every page in a component
