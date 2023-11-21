@@ -56,12 +56,6 @@ const config: GatsbyConfig = {
         display: 'swap',
       },
     },
-    {
-      resolve: 'gatsby-theme-tailwindcss',
-      options: {
-        postCssPlugins: [require('autoprefixer')],
-      },
-    },
     'gatsby-plugin-postcss',
     'gatsby-plugin-image',
     'gatsby-plugin-sitemap',

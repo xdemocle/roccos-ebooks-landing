@@ -14,3 +14,28 @@ export const onRouteUpdate = ({ location, prevLocation }) => {
 // exports.wrapPageElement = ({ element, props }) => {
 //   return <Layout {...props}>{element}</Layout>;
 // };
+
+// https://dev.to/faranmustafa/splash-screen-on-gatsby-js-1gom
+// export const onClientEntry = () => {
+//   setTimeout(() => {
+//     if (document.getElementById("loader-wrapper")) {
+//       document.getElementById("loader-wrapper").style.display = "flex";
+//     }
+//   }, 0);
+// };
+
+// export const onInitialClientRender = () => {
+//   setTimeout(() => {
+//     if (document.getElementById("loader-wrapper")) {
+//       document.getElementById("loader-wrapper").style.display = "flex";
+//     }
+//   }, 0);
+// };
+
+// export const onRouteUpdate = () => {
+//   setTimeout(() => {
+//     if (document.getElementById("loader-wrapper")) {
+//       document.getElementById("loader-wrapper").style.display = "none";
+//     }
+//   }, 3500);
+// };
